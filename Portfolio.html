@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <base target="_self">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jared Ricarte | Portfolio</title>
+    <meta name="description" content="Professional portfolio showcasing web development projects and skills">
+    <meta name="keywords" content="web developer, portfolio, frontend, javascript, react, html, css">
+    <meta name="author" content="Jared Ricarte">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: "#3B82F6",
+                        secondary: "#1E40AF",
+                        accent: "#10B981",
+                        dark: "#1F2937",
+                        light: "#F9FAFB"
+                    },
+                    fontFamily: {
+                        'sans': ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
+                        'mono': ['Fira Code', 'monospace']
+                    },
+                    animation: {
+                        'fade-in': 'fadeIn 0.5s ease-in-out',
+                        'slide-up': 'slideUp 0.3s ease-out'
+                    },
+                    keyframes: {
+                        fadeIn: {
+                            '0%': { opacity: '0' },
+                            '100%': { opacity: '1' }
+                        },
+                        slideUp: {
+                            '0%': { transform: 'translateY(20px)', opacity: '0' },
+                            '100%': { transform: 'translateY(0)', opacity: '1' }
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fira+Code:wght@300;400;500&display=swap');
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        .gradient-bg {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        
+        .card-hover {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        
+        .skill-bar {
+            transition: width 1.5s ease-in-out;
+        }
+    </style>
+</head>
+<body class="min-h-screen bg-light font-sans text-dark">
+    <!-- Navigation -->
+    <header class="fixed w-full bg-white/90 backdrop-blur-sm z-50 shadow-sm">
+        <nav class="container mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <a href="#" class="text-2xl font-bold text-primary" onclick="event.preventDefault(); scrollToSection('hero')">JR</a>
+                
+                <div class="hidden md:flex space-x-8">
+                    <a href="#" class="text-gray-600 hover:text-primary transition-colors" onclick="event.preventDefault(); scrollToSection('about')">About</a>
+                    <a href="#" class="text-gray-600 hover:text-primary transition-colors" onclick="event.preventDefault(); scrollToSection('hobbies')">Hobbies</a>
+                    <a href="#" class="text-gray-600 hover:text-primary transition-colors" onclick="event.preventDefault(); scrollToSection('contact')">Contact</a>
+                </div>
+                
+                <button class="md:hidden text-gray-600" id="mobile-menu-button">
+                    <i class="fas fa-bars text-xl"></i>
+                </button>
+            </div>
+            
+            <!-- Mobile Menu -->
+            <div class="md:hidden hidden mt-4 space-y-3" id="mobile-menu">
+                <a href="#" class="block text-gray-600 hover:text-primary transition-colors" onclick="event.preventDefault(); scrollToSection('about')">About</a>
+                <a href="#" class="block text-gray-600 hover:text-primary transition-colors" onclick="event.preventDefault(); scrollToSection('hobbies')">Hobbies</a>
+                <a href="#" class="block text-gray-600 hover:text-primary transition-colors" onclick="event.preventDefault(); scrollToSection('contact')">Contact</a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="hero" class="pt-24 pb-16 gradient-bg text-white">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row items-center justify-between">
+                <div class="md:w-1/2 mb-12 md:mb-0 animate-fade-in">
+                    <h1 class="text-4xl md:text-5xl font-bold mb-4">Hi, I'm <span class="text-accent">Jared Ricarte</span></h1>
+                    <h2 class="text-2xl md:text-3xl font-semibold mb-6">From BS INFO 1D</h2>
+                    <p class="text-lg mb-8 opacity-90">I'm Jared Ricarte, a student from BSINFO 1D, and this is my Portfolio.</p>
+
+                </div>
+                <div class="md:w-1/2 flex justify-center">
+                    <div class="relative">
+                        <div class="w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-4 border-white shadow-2xl">
+                            <img 
+                                src="1x1 yarn.png" 
+                                alt="Jared Ricarte - Web Developer" 
+                                class="w-full h-full object-cover"
+                                loading="lazy"
+                            />
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-16 bg-white">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-center mb-12">About Me</h2>
+            <div class="flex flex-col md:flex-row items-center gap-12">
+                <div class="md:w-1/2">
+                    <p class="text-lg mb-6">I am a friendly and curious person who enjoys learning new things and exploring different interests. I like spending my time doing activities that inspire creativity and help me grow. I am a lovable and down-to-earth human being who, through kindness, sincerity, and genuine care, can easily establish a connection with others. I live my life with patience, preferring to understand rather than judge, and always allowing people the space and support they require.</p>
+                    <p class="text-lg mb-6">Honesty is the cornerstone of my being-what I say and do are derived from a place of truth and authenticity. In the case of friendships, family, or even daily interactions, I do my best to always be the source of comfort, positivity, and authenticity for the people around me.</p>
+                    <div class="grid grid-cols-2 gap-4">
+                        </div>
+                </div>
+                <div class="md:w-1/2">
+                    <img 
+                        src="hello.jpg" 
+                        alt="Working on laptop" 
+                        class="w-full rounded-lg shadow-lg"
+                        loading="lazy"
+                    />
+                </div>
+            </div>
+        </div>
+    </section>
+
+    
+    <!-- Projects Section -->
+    <section id="hobbies" class="py-16 bg-white">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-center mb-12">Hobbies</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Project 1 -->
+                <div class="bg-white rounded-lg overflow-hidden shadow-lg card-hover">
+                    <div class="relative overflow-hidden">
+                        <img 
+                            src="bass 2.jpg" 
+                            alt="Playing Bass Guitar" 
+                            class="w-full h-48 object-cover transition-transform duration-300 hover:scale-105"
+                            loading="lazy"
+                        />
+
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Playing Bass Guitar</h3>
+                        <p class="text-gray-600 mb-4">Playing bass guitar is one of my hobbies because it allows me to express myself. It’s not just a hobby—it’s my therapy.</p>
+                    </div>
+                </div>
+                
+                <!-- Project 2 -->
+                <div class="bg-white rounded-lg overflow-hidden shadow-lg card-hover">
+                    <div class="relative overflow-hidden">
+                        <img 
+                            src="basketball.jpg" 
+                            alt="Task Management App" 
+                            class="w-full h-48 object-cover transition-transform duration-300 hover:scale-105"
+                            loading="lazy"
+                        />
+
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Basketball</h3>
+                        <p class="text-gray-600 mb-4">Basketball is one of my hobbies because it allows me to interact and have a bond with my friends.</p>
+                        <a href="#" class="text-primary font-semibold hover:text-secondary transition-colors"></a>
+                    </div>
+                </div>
+                
+                <!-- Project 3 -->
+                <div class="bg-white rounded-lg overflow-hidden shadow-lg card-hover">
+                    <div class="relative overflow-hidden">
+                        <img 
+                            src="sleeping.jpg" 
+                            alt="Fitness Tracker" 
+                            class="w-full h-48 object-cover transition-transform duration-300 hover:scale-105"
+                            loading="lazy"
+                        />
+
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Sleeping</h3>
+                        <p class="text-gray-600 mb-4">Sleeping is one of my hobbies because it gives me comfort, relaxation, and a break from the stress I carry everyday.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-12">
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-16 bg-white">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-center mb-12">Get In Touch</h2>
+            
+            <div class="max-w-4xl mx-auto">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                    <!-- Contact Info -->
+                    <div>
+                        <h3 class="text-2xl font-bold mb-6">Let's work together</h3>
+                        <p class="text-gray-600 mb-8">I'm always open to discussing new opportunities, interesting projects, or potential collaborations.</p>
+                        
+                        <div class="space-y-6">
+                            <div class="flex items-start">
+                                <div class="bg-primary/10 p-3 rounded-lg mr-4">
+                                    <i class="fas fa-envelope text-primary text-xl"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold">Email</h4>
+                                    <p class="text-gray-600">jaredricarte07@gmail.com</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <div class="bg-primary/10 p-3 rounded-lg mr-4">
+                                    <i class="fas fa-phone text-primary text-xl"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold">Phone</h4>
+                                    <p class="text-gray-600">0994-216-5679</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <div class="bg-primary/10 p-3 rounded-lg mr-4">
+                                    <i class="fas fa-map-marker-alt text-primary text-xl"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold">Location</h4>
+                                    <p class="text-gray-600">Calauan Laguna, Philippines</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="mt-8">
+                            <h4 class="font-semibold mb-4">Connect with me</h4>
+                            <div class="flex space-x-4">
+                                <a href="https://github.com/jaredricarte07-art" class="bg-gray-100 p-3 rounded-lg hover:bg-primary hover:text-white transition-colors">
+                                    <i class="fab fa-github"></i>
+                                </a>
+                                <a href="https://www.instagram.com/jred_rcarte4w/" class="bg-gray-100 p-3 rounded-lg hover:bg-blue-500 hover:text-white transition-colors">
+                                    <i class="fab fa-instagram"></i>
+                                </a>
+                                <a href="https://www.facebook.com/jared.ricarte.3" class="bg-gray-100 p-3 rounded-lg hover:bg-blue-700 hover:text-white transition-colors">
+                                    <i class="fab fa-facebook"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Contact Form -->
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-12">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-6 md:mb-0">
+                    <a href="#" class="text-2xl font-bold text-white" onclick="event.preventDefault(); scrollToSection('hero')">JR</a>
+                    <p class="text-gray-400 mt-2">This is my Portfolio.</p>
+                </div>
+                
+                <div class="flex space-x-6">
+                    <a href="#" class="text-gray-400 hover:text-white transition-colors">Home</a>
+                    <a href="#" class="text-gray-400 hover:text-white transition-colors" onclick="event.preventDefault(); scrollToSection('about')">About</a>
+                    <a href="#" class="text-gray-400 hover:text-white transition-colors" onclick="event.preventDefault(); scrollToSection('hobbies')">Hobbies</a>
+                    <a href="#" class="text-gray-400 hover:text-white transition-colors" onclick="event.preventDefault(); scrollToSection('contact')">Contact</a>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
+                <p> Jared Ricarte. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Define portfolio data
+        const portfolioData = {
+            "projects": [
+                {
+                    "id": 1,
+                    "title": "E-commerce Platform",
+                    "description": "A full-featured online shopping platform with cart, checkout, and payment integration.",
+                    "technologies": ["React", "Node.js", "MongoDB"],
+                    "category": "full-stack"
+                },
+                {
+                    "id": 2,
+                    "title": "Task Management App",
+                    "description": "Collaborative project management tool with real-time updates and team features.",
+                    "technologies": ["Vue.js", "Firebase", "Tailwind"],
+                    "category": "frontend"
+                },
+                {
+                    "id": 3,
+                    "title": "Fitness Tracker",
+                    "description": "Health and fitness application with workout tracking and progress analytics.",
+                    "technologies": ["React Native", "Express", "PostgreSQL"],
+                    "category": "mobile"
+                }
+            ],
+            "skills": [
+                { "name": "HTML/CSS", "level": 95 },
+                { "name": "JavaScript", "level": 90 },
+                { "name": "React", "level": 85 },
+                { "name": "Node.js", "level": 80 },
+                { "name": "Python", "level": 75 },
+                { "name": "Database", "level": 85 }
+            ],
+            "experience": [
+                {
+                    "position": "Senior Web Developer",
+                    "company": "TechCorp Solutions",
+                    "period": "2021 - Present",
+                    "description": "Lead development of multiple enterprise web applications."
+                },
+                {
+                    "position": "Frontend Developer",
+                    "company": "Digital Innovations Inc.",
+                    "period": "2019 - 2021",
+                    "description": "Built responsive web interfaces and collaborated with design teams."
+                },
+                {
+                    "position": "Web Developer",
+                    "company": "StartUp Ventures",
+                    "period": "2017 - 2019",
+                    "description": "Developed and maintained company websites and web applications."
+                }
+            ]
+        };
+
+        // Mobile menu toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Smooth scroll function
+        function scrollToSection(sectionId) {
+            const section = document.getElementById(sectionId);
+            if (section) {
+                window.scrollTo({
+                    top: section.offsetTop - 80,
+                    behavior: 'smooth'
+                });
+                // Close mobile menu if open
+                mobileMenu.classList.add('hidden');
+            }
+        }
+
+        // Contact form handling
+        const contactForm = document.getElementById('contactForm');
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const formData = {
+                name: document.getElementById('name').value,
+                email: document.getElementById('email').value,
+                subject: document.getElementById('subject').value,
+                message: document.getElementById('message').value
+            };
+            
+            // In a real application, you would send this data to a server
+            console.log('Form submitted:', formData);
+            
+            // Show success message
+            alert('Thank you for your message! I will get back to you soon.');
+            contactForm.reset();
+        });
+
+        // Animate skill bars on scroll
+        const observerOptions = {
+            threshold: 0.5
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const skillBars = entry.target.querySelectorAll('.skill-bar');
+                    skillBars.forEach(bar => {
+                        // Trigger animation by resetting and setting width
+                        const width = bar.style.width;
+                        bar.style.width = '0';
+                        setTimeout(() => {
+                            bar.style.width = width;
+                        }, 100);
+                    });
+                }
+            });
+        }, observerOptions);
+
+        // Observe skills section
+        const skillsSection = document.getElementById('skills');
+        if (skillsSection) {
+            observer.observe(skillsSection);
+        }
+
+        // Initialize animations on page load
+        document.addEventListener('DOMContentLoaded', () => {
+            // Add animation classes to elements
+            const animatedElements = document.querySelectorAll('.animate-fade-in, .animate-slide-up');
+            animatedElements.forEach((el, index) => {
+                el.style.animationDelay = `${index * 0.1}s`;
+            });
+        });
+    </script>
+</body>
+</html>
